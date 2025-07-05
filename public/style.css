@@ -1,0 +1,114 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #fafafa;
+  color: #222;
+  transition: background 0.3s, color 0.3s;
+}
+body.dark {
+  background: #181818;
+  color: #f0f0f0;
+}
+h1 {
+  text-align: center;
+  margin: 1rem 0;
+}
+.gallery {
+  column-count: 4;
+  column-gap: 16px;
+  padding: 16px;
+}
+@media (max-width: 1200px) {
+  .gallery {
+    column-count: 3;
+  }
+}
+@media (max-width: 800px) {
+  .gallery {
+    column-count: 2;
+  }
+}
+@media (max-width: 500px) {
+  .gallery {
+    column-count: 1;
+  }
+}
+.gallery img {
+  width: 100%;
+  margin-bottom: 16px;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+.gallery img:hover {
+  transform: scale(1.05);
+}
+.modal {
+  display: flex;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.8);
+  align-items: center;
+  justify-content: center;
+}
+body.dark .modal {
+  background: rgba(20,20,20,0.95);
+}
+.modal-content {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 8px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+}
+.close {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 101;
+}
+body.dark .close {
+  color: #eee;
+}
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+  .modal-content {
+    max-width: 98vw;
+    max-height: 60vh;
+  }
+}
+/* Dark mode for images (optional slight border) */
+body.dark .gallery img {
+  border: 1px solid #333;
+}
+/* Dark mode toggle button */
+#darkmode-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  background: #222;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  cursor: pointer;
+  z-index: 200;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: background 0.3s, color 0.3s;
+}
+body.dark #darkmode-toggle {
+  background: #eee;
+  color: #222;
+}
